@@ -1,18 +1,20 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
+
+import Content from './components/Content/Content'
 
 export default async function Home () {
   const supabase = createServerComponentClient({ cookies })
-  const { data: moods } = await supabase.from('moods').select()
+  const session = await supabase.auth.getUser()
+
+  if (session.data.user === null) {
+    redirect('/login')
+  }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hi
-      <pre>
-        {
-          JSON.stringify(moods, null, 2)
-        }
-      </pre>
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <Content session={session}/>
     </main>
   )
 }
