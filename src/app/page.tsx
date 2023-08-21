@@ -2,7 +2,7 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-import Content from './components/Content/Content'
+import Content from './components/content/content'
 
 export default async function Home () {
   const supabase = createServerComponentClient({ cookies })
@@ -13,7 +13,7 @@ export default async function Home () {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className='flex min-h-screen flex-col items-center justify-between'>
       <Content session={session}/>
     </main>
   )

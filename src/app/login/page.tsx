@@ -4,13 +4,14 @@ import { createClientComponentClient, type Session } from '@supabase/auth-helper
 import { redirect } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import type { Database } from '../../../database.types'
 import Image from 'next/image'
+import type { Database } from '../../../database.types'
 
 export default function Login () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [session, setSession] = useState<Session | null>(null)
+  const [errorMessage, setErrorMessage] = useState('')
   const supabase = createClientComponentClient<Database>()
 
   useEffect(() => {
@@ -22,11 +23,16 @@ export default function Login () {
   }, [])
 
   const handleLogIn = async () => {
-    const { data } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
     })
-    setSession(data.session)
+    if (data) {
+      setSession(data.session)
+    }
+    if (error != null) {
+      setErrorMessage(error.message)
+    }
   }
 
   if (session !== null) {
@@ -36,7 +42,7 @@ export default function Login () {
   return (
     <main className="flex flex-col max-w-full h-screen">
       <section className="flex flex-col items-center justify-center items-center w-screen min-h-full">
-        <p className="font-medium text-3xl">Welcome!</p>
+        <p className="font-medium xs:text-2xl text-3xl">Welcome!</p>
         <Image
           src="/images/welcome.jpg"
           alt="Welcome Image"
@@ -45,7 +51,7 @@ export default function Login () {
         />
         <p className="font-medium text-xl">E-mail:</p>
         <input
-          className="rounded-lg bg-indigo-50 h-12 lg:w-1/4 mb-4"
+          className="rounded-lg bg-indigo-50 h-12 sm:w-1/2 w-2/5 mb-4"
           name="email"
           onChange={(e) => {
             setEmail(e.target.value)
@@ -60,15 +66,16 @@ export default function Login () {
             setPassword(e.target.value)
           }}
           value={password}
-          className="rounded-lg bg-indigo-50 h-12 lg:w-1/4 mb-4"
+          className="rounded-lg bg-indigo-50 h-12 sm:w-1/2 w-2/5 mb-4"
         />
         <button
-          className="bg-button text-white rounded-lg lg:w-1/6 w-28 h-10 mb-4"
+          className="bg-button text-white rounded-lg w-28 h-10 xs:w-2/5 w-1/6 mb-4"
           onClick={handleLogIn}
         >
           Log In
         </button>
-        <p> Don't have an account? <b><Link href="/signup"><u>SIGN UP</u></Link></b></p>
+        {errorMessage.length !== 0 ? <p className="sm:text-xs mb-2"> <b>{errorMessage}</b> </p> : null}
+        <p> Don&apos;t have an account? <b><Link href="/signup"><u>SIGN UP</u></Link></b></p>
       </section>
     </main>
   )

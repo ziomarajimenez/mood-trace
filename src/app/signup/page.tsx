@@ -48,7 +48,7 @@ export default function Login () {
   return (
     <main className="flex flex-col items-center max-w-full h-screen">
       <section className="flex flex-col items-center justify-center items-center w-screen min-h-full">
-       <p className="font-medium text-3xl">Create an account</p>
+      <p className="font-medium xs:text-2xl text-3xl">Create an account</p>
       <Image
         src="/images/welcome.jpg"
         alt="Welcome Image"
@@ -56,7 +56,7 @@ export default function Login () {
         height={300}
       />
       <p className="font-medium text-xl">E-mail:</p>
-      <input className="rounded-lg bg-indigo-50 h-12 lg:w-1/4 mb-4" name="email" onChange={(e) => { setEmail(e.target.value) }}
+      <input className="rounded-lg bg-indigo-50 h-12 sm:w-1/2 w-2/5 mb-4" name="email" onChange={(e) => { setEmail(e.target.value) }}
       value={email} />
       <p className="font-medium text-xl">Password:</p>
       <input
@@ -64,10 +64,11 @@ export default function Login () {
           name="password"
           onChange={(e) => { setPassword(e.target.value) }}
           value={password}
-          className="rounded-lg bg-indigo-50 h-12 lg:w-1/4 mb-4"
+          className="rounded-lg bg-indigo-50 h-12 sm:w-1/2 w-2/5 mb-4"
       />
-      {successMessage.length !== 0 ? <p> <b>{successMessage} </b> </p> : null}
-      <button className="bg-button text-white rounded-lg w-28 h-10 lg:w-1/6 mb-4" onClick={handleSignUp}>Sign up</button>
+      {successMessage.length !== 0 ? <p className="sm:text-xs mb-2"> <b>{successMessage}</b> </p> : null}
+      {errorMessage.length !== 0 ? <p className="sm:text-xs mb-2"> <b>{errorMessage}</b> </p> : null}
+      <button className="bg-button text-white rounded-lg w-28 h-10 xs:w-2/5 w-1/6 mb-4" onClick={handleSignUp}>Sign up</button>
       <p> Already have an account? <b><Link href="/login"><u>LOG IN</u></Link></b></p>
       </section>
     </main>

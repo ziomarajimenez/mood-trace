@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mood Tracker
 
-## Getting Started
+<div align="center">
+  <img src="./public/mood.png" alt="Mood Tracker Logo" width="200">
+</div>
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. [Project Description](#project-description)
+2. [Tech Stack](#tech-stack)
+3. [Prototypes](#prototypes)
+4. [Author](#author)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Description
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Mood Tracker is an app designed to help users monitor and analyze their daily moods. It provides a platform for users to record their mood and daily activities, and utilizes OpenAI's natural language processing to analyze their input and provide personalized insights.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The app is built using a modern tech stack including Next.js for the frontend, Supabase for data storage, OpenAI for text analysis, Chart.js for data visualization, and Tailwind CSS for styling. Its user-friendly interface and insightful analysis make it a valuable tool for gaining self-awareness and tracking mood trends over time.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Prototypes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* Mobile
+![Prototypes Mobile](./public/prototypes.png)
 
-## Deploy on Vercel
+* Desktop!
+![Prototypes Desktop](./public/mobileprototypes.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Ziomara Jiménez | [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ziomarajimenez/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ziomarajimenez) |

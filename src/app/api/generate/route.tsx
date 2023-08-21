@@ -9,7 +9,7 @@ export async function POST(request) {
   const body = await request.json()
   try {
     const response = await openai.completions.create ({
-      prompt: `sentiment analysis of this text: ${body.description} please match it with the following: happy, netral, sad, angry. and also return a text with the analysis that starts with Your text expreses return it in a json file with two properties match and analysys`,
+      prompt: `sentiment analysis of this text: ${body.description} please match it with the following: happy, neutral, sad, angry. and also return a text with the analysis directed a mood tracker user that starts with Your text expreses return it in a json file with two properties match and analysys`,
       model: 'text-davinci-003',
       temperature: 0.5,
       max_tokens: 200
