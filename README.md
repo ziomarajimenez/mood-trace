@@ -30,7 +30,7 @@ The app is built using a modern tech stack including Next.js for the frontend, S
 * Mobile
 ![Prototypes Mobile](./public/prototypes.png)
 
-* Desktop!
+* Desktop
 ![Prototypes Desktop](./public/mobileprototypes.png)
 
 ## Author
